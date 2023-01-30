@@ -1,0 +1,138 @@
+<div class="container">
+    <h1>Model Details</h1>
+    <p>Provides a general, high-level description of the model.</p>
+    <mat-card class="head-card">
+        <mat-card-content>Simple card</mat-card-content>
+    </mat-card>
+
+    <div class="form-head">
+        <h5>GENERAL</h5>
+    </div>
+    <div class="form-container">
+        <form [formGroup]="modelDetailsForm" (submit)="onSubmit()">
+            <div formGroupName="modelInfo">
+                <div class="form-group row">
+                    <label for="modelName" class="col-sm-4 col-form-label">
+                        Name
+                        <small class="text-muted">A human-friendly name for the model</small>
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" required class="form-control" id="modelName"
+                            placeholder="Breast Cancer Diagnostic Example Dataset" formControlName="modelName">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="modelOverview" class="col-sm-4 col-form-label">
+                        Overview
+                        <small class="text-muted">A brief, one-line description of the model</small>
+                    </label>
+                    <div class="col-sm-8">
+                        <textarea id="modelOverview" required class="form-control" name="modelOverview"
+                            placeholder="This model predicts ..." formControlName="modelOverview" cols="30"
+                            rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row" formGroupName="regulatoryRequirements">
+                    <label for="modelRequirements" class="col-sm-4 col-form-label">
+                        Regulatory Requirements
+                        <small class="text-muted">Guideline which the model should be compliance</small>
+                    </label>
+                    <div class="col-sm-8">
+                        <div class="form-check">
+                            <label class="form-check-label" for="HKMAAprinciples">
+                                <input class="form-check-input" type="checkbox" value="HKMA AlPrinciples"
+                                    formControlName="HKMA">
+                                HKMA Al principles
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label" for="BankofEnglandAndFCA'sGuideline">
+                                <input class="form-check-input" type="checkbox" value="BankOfEnglandAndFCA'sGuideline"
+                                    formControlName="FCAandBANK">
+                                Bank of England and FCA's guideline
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="modelDocumentation" class="col-sm-4 col-form-label">
+                        Documentation
+                        <small class="text-muted">A more thorough description of the model and its usage.</small>
+                    </label>
+                    <div class="col-sm-8">
+                        <textarea id="modelDocumentation" required class="form-control" name="modelOverview"
+                            placeholder="..." formControlName="documentation" cols="30" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="modelLicenses" class="col-sm-4 col-form-label">
+                        Licenses
+                        <small class="text-muted">
+                            SPDX license identifier <a
+                                href="https://spdx.org/licenses/">(https://spdx.org/licenses/)</a> for the model, or
+                            "proprietary" for an unlicensed module
+                        </small>
+                    </label>
+                    <div class="col-sm-8" formArrayName="licenses">
+
+                        <div class="row" *ngFor="let licenseControl of licensesControls; let i = index">
+                            <input type="text" required class="form-control col" id="modelLicenses"
+                                style="margin-bottom: 0.5rem;" [formControlName]="i">
+
+                            <small class="col-1" *ngIf="i != 0">
+                                <mat-icon style="cursor: pointer;"
+                                    (click)="onDeleteField(i, 'licenses')">delete_forever</mat-icon>
+                            </small>
+
+                        </div>
+
+                        <div class="button-div">
+                            <button type="button" (click)="onAddField('licenses')" class="btn btn-success btn-sm">ADD
+                                FIELD</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group row" formArrayName="references">
+                    <label for="modelReferences" class="col-sm-4 col-form-label">
+                        References
+                        <small class="text-muted">
+                            Provide any additional references the reader may need
+                        </small>
+                    </label>
+                    <div class="col-sm-8">
+
+                        <div class="row" *ngFor="let referenceControl of referencesControls; let i = index">
+                            <input type="text" required class="form-control col" id="modelReferences"
+                                style="margin-bottom: 0.5rem;" [formControlName]="i">
+
+                            <small class="col-1" *ngIf="i != 0">
+                                <mat-icon style="cursor: pointer;"
+                                    (click)="onDeleteField(i, 'references')">delete_forever</mat-icon>
+                            </small>
+                        </div>
+
+                        <div class="button-div">
+                            <button type="button" (click)="onAddField('references')" class="btn btn-success btn-sm">ADD
+                                FIELD</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="path" class="col-sm-4 col-form-label">
+                        Path
+                        <small class="text-muted">Where is this model stored?</small>
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" required class="form-control" id="path" placeholder="my/model/path"
+                            formControlName="documentation">
+                    </div>
+                </div>
+            </div>
+            <div class="button-div" >
+                <button type="submit" class="btn btn-secondary btn-lg">Create</button>
+            </div>
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,45 @@
+.container {
+    margin: 1rem 1rem;
+    padding: 1rem 3rem;
+
+    .head-card {
+        background-color: #4B5563;
+        color: white;
+        height: 30px;
+        justify-content: center;
+    }
+
+    .form-head {
+        width: 100%;
+        background-color: #F9FAFB;
+        margin-bottom: -1.5rem;
+        padding: 0.5rem 1rem;
+        // border-bottom: 1px solid #c3c4c5 ;
+
+    }
+
+    .form-container {
+        margin-top: 1rem;
+        background-color: white;
+        padding: 0 1rem;
+
+        .form-group {
+            padding: 0.8rem 0;
+            border-top: 1px solid #c3c4c5;
+
+            .button-div {
+                margin-top: 1rem;
+                text-align: end;
+            }
+        }
+
+        .text-muted {
+            display: block;
+        }
+
+        .button-div{
+            margin-top: 1rem;
+            text-align: end;
+        }
+    }
+}

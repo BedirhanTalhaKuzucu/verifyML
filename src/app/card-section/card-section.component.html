@@ -1,0 +1,63 @@
+<div class="sidebar" [ngClass]="{ 'expanded': isExpanded }">
+    <div class="header">
+      <h1 class="title" *ngIf="isExpanded" >
+        Card Section
+      </h1>
+      <div class="toggle" (click)="handleSidebarToggle()">
+        <span class="chevron"></span>
+      </div>
+
+    </div>
+    <h4 class="small-head" *ngIf="!isExpanded" >SECTIONS</h4>
+
+    <hr class="divider" >
+    <div class="content" >
+      <div class="link">
+        <div class="content" [routerLink]="['/home']" [routerLinkActive]="'active'">
+          <div class="icon">
+            MD
+          </div>
+          <div class="title"> Model Details </div>
+        </div>
+      </div>
+      <div class="link ">
+        <div class="content" [routerLink]="['/configuration']" [routerLinkActive]="'active'">
+          <div class="icon">
+            C
+          </div>
+          <div class="title">Considerations</div>
+        </div>
+      </div>
+      <div class="link">
+        <div class="content" [routerLink]="['/bookings']" [routerLinkActive]="'active'">
+          <div class="icon">
+            D
+          </div>
+          <div class="title">Datasets</div>
+        </div>
+      </div>
+      <div class="link">
+        <div class="content" [routerLink]="['/bookings']" [routerLinkActive]="'active'">
+          <div class="icon">
+            QA
+          </div>
+          <div class="title">Quantitative Analysis</div>
+        </div>
+      </div><div class="link">
+        <div class="content" [routerLink]="['/bookings']" [routerLinkActive]="'active'">
+          <div class="icon">
+            EA
+          </div>
+          <div class="title">Explainablity Analysis</div>
+        </div>
+      </div><div class="link">
+        <div class="content" [routerLink]="['/bookings']" [routerLinkActive]="'active'">
+          <div class="icon">
+            FA
+          </div>
+          <div class="title">Fairness Analysis</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"></div>
+  </div>
